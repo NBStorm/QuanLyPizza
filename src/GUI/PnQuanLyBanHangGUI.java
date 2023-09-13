@@ -969,7 +969,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             String ten = tblBanHang.getValueAt(row, 1) + "";
             String donGia = tblBanHang.getValueAt(row, 2) + "";
             String anh = tblBanHang.getValueAt(row, 5) + "";
-            int soLuong = Integer.parseInt(tblBanHang.getValueAt(row, 3) + "");
+            int soLuong = Integer.parseInt(tblBanHang.getValueAt(row, 3).toString().replace(",", ""));
             if (soLuong < 1) {
                 MyDialog dlg = new MyDialog("Sản phẩm đã hết hàng", MyDialog.ERROR_DIALOG);
                 return;
@@ -1030,8 +1030,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
         String ma = txtMaSPBanHang.getText();
         String ten = txtTenSPBanHang.getText();
         String donGia = txtDonGiaBanHang.getText();
-        int soLuong = Integer.parseInt(spnSoLuongBanHang.getValue() + "");
-        int soLuongConLai = Integer.parseInt(tblBanHang.getValueAt(tblBanHang.getSelectedRow(), 3) + "");
+        int soLuong = Integer.parseInt(spnSoLuongBanHang.getValue().toString());
+        int soLuongConLai = Integer.parseInt(tblBanHang.getValueAt(tblBanHang.getSelectedRow(), 3).toString().replace(",",""));
 
         if (soLuong > soLuongConLai || soLuongConLai <= 0) {
             new MyDialog("Sản phẩm đã hết hàng", MyDialog.ERROR_DIALOG);
@@ -1047,7 +1047,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             return;
         int key = Integer.parseInt(ma);
         for (int i = 0; i < tblGioHang.getRowCount(); i++) {
-            int maTbl = Integer.parseInt(tblGioHang.getValueAt(i, 0) + "");
+            int maTbl = Integer.parseInt(tblGioHang.getValueAt(i, 0).toString());
             if (maTbl == key) {
                 int soLuongAdd = Integer.parseInt(tblGioHang.getValueAt(i, 2) + "");
                 soLuongAdd += soLuong;
@@ -1055,7 +1055,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
                 int donGiaSP = Integer.parseInt(donGia);
 
                 tblGioHang.setValueAt(soLuongAdd, i, 2);
-                tblGioHang.setValueAt(dcf.format(soLuong * donGiaSP), i, 4);
+                tblGioHang.setValueAt(dcf.format(soLuongAdd * donGiaSP), i, 4);
 
                 // cập nhật lại số lượng trong db
                 spController.capNhatSoLuongSP(key, -soLuong);

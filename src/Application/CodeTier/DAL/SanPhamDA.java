@@ -122,7 +122,7 @@ public class SanPhamDA {
 //            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
 //            pre.setInt(1, sp.getSoLuong());
 //            pre.executeUpdate();
-            String sql = "UPDATE SanPham SET SoLuong = SoLuong + ?, UpdatedAt = ? WHERE MaSP = ?";
+            String sql = "UPDATE SanPham SET SoLuong = ?, UpdatedAt = ? WHERE MaSP = ?";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setInt(1, sp.getSoLuong());
             pre.setTimestamp(2, sp.getUpdatedAt());
