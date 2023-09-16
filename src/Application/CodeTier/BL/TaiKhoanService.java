@@ -6,8 +6,8 @@ public class TaiKhoanService {
 
     private TaiKhoanDA tkDA = new TaiKhoanDA();
     
-    public boolean themTaiKhoan(int maNV, String tenDangNhap, String quyen) {
-        return tkDA.themTaiKhoan(maNV, tenDangNhap, quyen);
+    public boolean themTaiKhoan(int maNV, String tenDangNhap, String quyen, int trangThai) {
+        return tkDA.themTaiKhoan(maNV, tenDangNhap, quyen, trangThai);
     }
 
     public boolean kiemTraTrungTenDangNhap(String tenDangNhap) {

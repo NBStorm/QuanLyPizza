@@ -14,12 +14,12 @@ public class TaiKhoanDA {
     long currentSystemTime = System.currentTimeMillis();
     Timestamp currentTime = new Timestamp(0);
     
-    public boolean themTaiKhoan(int maNV, String tenDangNhap, String quyen) {
+    public boolean themTaiKhoan(int maNV, String tenDangNhap, String quyen, int trangThai) {
         boolean result = false;
         currentTime.setTime(currentSystemTime);
         try {
-            String sql = "INSERT INTO taikhoan(MaNV, TenDangNhap, MatKhau, Quyen, CreatedAt, UpdatedAt) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";
+        	String sql = "INSERT INTO taikhoan(MaNV, TenDangNhap, MatKhau, Quyen, CreatedAt, UpdatedAt, TrangThai) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setInt(1, maNV);
             pre.setString(2, tenDangNhap);
@@ -28,6 +28,7 @@ public class TaiKhoanDA {
             pre.setTimestamp(5, currentTime);
             pre.setTimestamp(6, currentTime);
             result = pre.executeUpdate() > 0;
+            pre.setInt(7, trangThai);
         } catch (Exception e) {
             String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
             System.out.println("Error occurred in method: " + methodName);

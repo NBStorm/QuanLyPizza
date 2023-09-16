@@ -56,7 +56,9 @@ public class TaiKhoanController {
             }
             return false;
         }
-        boolean flag = tkService.themTaiKhoan(maNV, tenDangNhap, quyen);
+        
+        //thien add default value for TrangThai
+        boolean flag = tkService.themTaiKhoan(maNV, tenDangNhap, quyen, 1);
         if (flag) {
             new MyDialog("Cấp tài khoản thành công! Mật khẩu là " + tenDangNhap, MyDialog.SUCCESS_DIALOG);
         } else {
