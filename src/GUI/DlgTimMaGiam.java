@@ -191,10 +191,11 @@ public class DlgTimMaGiam extends JDialog {
             Date now = new Date();
             if (gg.getNgayBD().before(now) && gg.getNgayKT().after(now)) {
                 vec.add("Có hiệu lực");
+                dtmMaGiam.addRow(vec);
             } else {
                 vec.add("Không hiệu lực");
             }
-            dtmMaGiam.addRow(vec);
+            
         }
     }
 

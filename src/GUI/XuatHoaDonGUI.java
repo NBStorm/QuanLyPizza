@@ -234,6 +234,11 @@ public class XuatHoaDonGUI extends JDialog {
 
         txtMaGiam.setEditable(false);
         txtMaGiam.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtMaGiam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaGiamActionPerformed(evt);
+            }
+        });
 
         btnTimMaGiam.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnTimMaGiam.setText("...");
@@ -315,6 +320,10 @@ public class XuatHoaDonGUI extends JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtMaGiamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaGiamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaGiamActionPerformed
 
     public static boolean checkBanHang = false;
 
