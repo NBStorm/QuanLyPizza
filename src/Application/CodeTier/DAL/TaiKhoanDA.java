@@ -27,8 +27,8 @@ public class TaiKhoanDA {
             pre.setString(4, quyen);
             pre.setTimestamp(5, currentTime);
             pre.setTimestamp(6, currentTime);
-            result = pre.executeUpdate() > 0;
             pre.setInt(7, trangThai);
+            result = pre.executeUpdate() > 0;
         } catch (Exception e) {
             String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
             System.out.println("Error occurred in method: " + methodName);
